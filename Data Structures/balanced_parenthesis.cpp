@@ -16,7 +16,7 @@ void check(string str,int n,string stack)
 			{
 				if(top==-1)
 				{
-					top--;
+					top--; //if there is uneven closing we need top-- 
 				
 					break;
 				}
