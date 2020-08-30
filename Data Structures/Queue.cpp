@@ -5,7 +5,7 @@ int queue[SIZE],rear=-1,front=-1;
 
 void enqueue(int element)
 {
-	if(rear==(SIZE-1))
+	if(front==0 && rear==(SIZE-1))
 	{
 		cout<<"Queue is full"<<endl;
 	}
@@ -20,37 +20,49 @@ void enqueue(int element)
 	}
 }
 void dequeue()
-{	
-
-	if(front==rear)
-	{
-		front=-1;
-		rear=-1;
+{		
+	cout<<"element "<<queue[front]<<" Deleted"<<endl;
+	int element;
+	if(front==-1)
+	{	
 		cout<<"Queue is Empty"<<endl;
+	
 	}
-	else
+	else 
 	{
-		cout<<"element "<<queue[front]<<" Deleted"<<endl;
+		element=queue[front];
 		front++;
-		if(front>=rear)
-		{
-			front=-1;
-			rear=-1;	
-		}	// Q has only one element, so we reset the queue after deleting it.
-		
-		
-
+		 if (front >= rear) 
+		 {
+        		front = -1;
+        		rear = -1;
+      	}
 	}
+
+	
+	
 }
 void display()
 {
-
-	for(int i=front;i<=rear;i++)
+	if(front==-1)
 	{
-		cout<<queue[i]<<endl;
-		
+		cout<< "Empty Queue" << endl;
 	}
+	else
+	{
+		cout << endl
+         << "Front index-> " << front;
+      cout << endl
+         << "Items -> ";
+      for (int i = front; i <= rear; i++)
+        cout << queue[i] << "  ";
+      cout << endl
+         << "Rear index-> " << rear << endl;
+    }
 }
+
+
+
 int main()
 {
 	int val,choice;
