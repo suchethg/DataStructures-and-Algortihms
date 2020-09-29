@@ -5,19 +5,19 @@ int main()
 {
 	int arr[] = {5,4,3,2,1};
 		int largest = 0;
-		int j;
-	for(int i = 0;i<5;i++)
+		int j = 0;
+	for(int i = 4;i>0;i--)
 	{
 		largest = 0;
-		for(j = 1;j<5;j++)
+		for(j = 1;j<=i;j++)
 		{
 			if(arr[j]>arr[largest])
 			{
 				largest = j;
 			}
 		}
-		int tmp = arr[j];
-		arr[j] = arr[largest];
+		int tmp = arr[i];
+		arr[i] = arr[largest];
 		arr[largest] = tmp; 
 		
 	}
