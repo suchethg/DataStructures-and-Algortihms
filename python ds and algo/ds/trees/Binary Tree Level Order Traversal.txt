@@ -1,0 +1,28 @@
+#Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
+#Input: root = [3,9,20,null,null,15,7]
+#Output: [[3],[9,20],[15,7]]
+#https://leetcode.com/problems/binary-tree-level-order-traversal/
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+class Solution:
+    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if not root:
+            return []
+        stack,queue,res,ncount =  [root],[],[[root.val]],1
+        while stack:
+            temp = stack.pop(0)
+            if temp.left:
+                stack.append(temp.left)
+            if temp.right:
+                stack.append(temp.right)
+            ncount-=1
+            if ncount==0:
+                queue = [x.val for x in stack]
+                res+=[queue] if queue else []
+                ncount = len(stack)
+        return res
+        

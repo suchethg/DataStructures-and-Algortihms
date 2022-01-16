@@ -1,0 +1,25 @@
+class ListNode:
+	def __init__(self,x):
+		self.val = x
+		self.next = None
+class Solutions:
+	def floyds_cycle(self,head:ListNode)->ListNode:
+		fast = head
+		slow = head
+		if not head:
+			return None
+		if not head.next:
+			return None
+		while fast and fast.next:
+			fast = fast.next.next
+			slow = slow.next
+			if fast == slow:
+				break
+		if fast==slow:
+			while fast!=head:
+				fast = fast.next
+				head = head.next
+			return head
+		else:
+			return None	
+			

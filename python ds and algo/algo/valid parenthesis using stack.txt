@@ -1,0 +1,11 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+	maps = {'(':')','{':'}','[':']'}
+	stack = []
+	for i in range(len(s)):
+		if s[i] in m:
+			stack.append(s[i])
+		elif not stack or (m[stack.pop()]!=s[i]):
+			return False
+	return len(stack)==0
+                    
