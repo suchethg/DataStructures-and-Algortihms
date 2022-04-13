@@ -1,0 +1,29 @@
+https://leetcode.com/problems/valid-anagram/submissions/
+
+Input: s = "anagram", t = "nagaram"
+Output: true
+
+class Solution:
+	def isAnagram(self,s:str,t:str)->bool:
+		if len(s)!=len(t):
+			return False
+		
+		ana = dict()
+		
+		for i in range(len(s)):
+			if s[i] in ana:
+				ana[s[i]] += 1
+			else:
+				ana[s[i]] = 1
+		
+		for i in range(len(s)):
+			if t[i] in ana:
+				ana[t[i]] -=1
+			else:
+				return False
+
+		for i in range(len(s)):
+			if ana[s[i]] >=1:
+				return False
+
+		return True

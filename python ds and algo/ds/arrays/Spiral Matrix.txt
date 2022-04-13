@@ -1,0 +1,40 @@
+https://leetcode.com/problems/spiral-matrix/
+
+Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+Output: [1,2,3,6,9,8,7,4,5]
+
+class Solutions(object):
+	def spiralOrder(self,matrix):
+		height = len(matrix)
+		width = len(matrix[0])
+		top = 0
+		bottom = height-1
+		left = 0
+		right = width-1
+		ans = []
+ 		while top<bottom and left<right:
+			for col in range(left,right):
+				ans.append(matrix[col][top])
+			
+			for row in range(top,bottom):
+				ans.append(matrix[row][right])
+
+			for col in range(right,left,-1):
+				ans.append(matrix[bottom][col])
+
+			for row in range(bottom,top,-1):
+				ans.append(matrix[row][left])
+			
+			top +=1 
+			bottom -=1 
+			left +=1 
+			right -=1 
+			
+			if len(ans)<height*width:
+				for row in range(top,bottom+1):
+					for col in range(left,right+1):
+						ans.append(matrix[row][col])
+			
+			return ans
+			
+			
