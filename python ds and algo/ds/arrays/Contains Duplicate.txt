@@ -6,9 +6,4 @@ Output: true
 
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        nonDuplicate = set(nums)
-        if len(nums) == len(nonDuplicate):
-            return False
-        
-        return True
-        
+        return not (len(set(nums)) == len(nums))
